@@ -29,7 +29,7 @@ function onSubmit(event) {
   }
   getCards(searchKey, page, perPage)
     .then(data => {
-    const searchResults = data.hits;
+    let searchResults = data.hits;
       if (data.totalHits === 0) {
         
         Notify.failure(
@@ -56,7 +56,7 @@ moreButton.addEventListener('click', onClickMore);
 
 
 function renderCards(searchResults) {
-  const markup = searchResults.map(
+  let markup = searchResults.map(
       ({
         webformatURL,
         largeImageURL,
