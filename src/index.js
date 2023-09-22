@@ -48,7 +48,7 @@ function onSubmit(event) {
   })
     .catch(fetchError);
   event.currentTarget.reset();
-  renderCards(getCards(searchKey));
+  // renderCards(getCards(searchKey));
 }
 
 searchForm.addEventListener('submit', onSubmit);
