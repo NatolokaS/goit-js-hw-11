@@ -1,15 +1,12 @@
-import Notify from 'notiflix';
-import ref from './js/references';
-// import { fetchError } from './js/errorHandler';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
+import ref  from './js/references';
 import './styles.css';
 import { getCards } from "./js/cards";
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const { gallery, searchForm, loaderText, errorText, moreButton } = ref;
+const { gallery, searchForm, moreButton } = ref;
 
-loaderText.classList.replace('loader', 'is-hidden');
-errorText.classList.add('is-hidden');
 moreButton.classList.add('is-hidden');
 
 const perPage = 40;
@@ -27,14 +24,14 @@ function onSubmit(event) {
     Notify.info('Field is empty');
     return;
   }
+  
   getCards(searchKey, page, perPage)
     .then(data => {
     let searchResults = data.hits;
       if (data.totalHits === 0) {
-        
         Notify.failure(
           'Images was not found with such query.'
-        ); 
+        );
       } else { 
         renderCards(searchResults);
         lightbox.refresh();
@@ -48,7 +45,6 @@ function onSubmit(event) {
   })
     .catch(fetchError);
   event.currentTarget.reset();
-  // renderCards(getCards(searchKey));
 }
 
 searchForm.addEventListener('submit', onSubmit);
