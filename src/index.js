@@ -1,6 +1,6 @@
 import Notify from 'notiflix';
 import ref from './js/references';
-import { fetchError } from './js/errorHandler';
+// import { fetchError } from './js/errorHandler';
 import './styles.css';
 import { getCards } from "./js/cat-api";
 import SimpleLightbox from 'simplelightbox';
@@ -114,7 +114,6 @@ function onClickMore() {
     })
     .catch(fetchError);
 };
-
 
 function fetchError() {
   Notify.failure(
