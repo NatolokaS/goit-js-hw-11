@@ -151,12 +151,13 @@ img:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 150px;
   height: 50px;
   border: #685f81;
   border-radius: 5px;
   cursor: pointer;
   background-color: #a698f0;
+  color: white;
   margin: 40px auto;
 }
 

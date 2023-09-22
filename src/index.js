@@ -2,14 +2,14 @@ import Notify from 'notiflix';
 import ref from './js/references';
 // import { fetchError } from './js/errorHandler';
 import './styles.css';
-import { getCards } from "./js/cat-api";
+import { getCards } from "./js/cards";
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const { gallery, searchForm, loaderText, errorText, moreButton } = ref;
 
-// loaderText.classList.replace('loader', 'is-hidden');
-// errorText.classList.add('is-hidden');
+loaderText.classList.replace('loader', 'is-hidden');
+errorText.classList.add('is-hidden');
 moreButton.classList.add('is-hidden');
 
 const perPage = 40;
@@ -90,7 +90,7 @@ function renderCards(searchResults) {
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
-let lightbox = new SimpleLightbox('.photo-card a', {
+const lightbox = new SimpleLightbox('.photo-card a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
